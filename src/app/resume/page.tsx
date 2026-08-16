@@ -2,8 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, Printer, Download, Mail, Phone, ExternalLink, MapPin, Award } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/BrandIcons";
+import { ArrowLeft, Printer } from "lucide-react";
 
 export default function ResumePage() {
     const handlePrint = () => {

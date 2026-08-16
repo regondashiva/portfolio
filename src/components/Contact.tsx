@@ -10,7 +10,6 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
-    const [warningNotice, setWarningNotice] = useState<string | null>(null);
 
     const contactDetails = [
         {
@@ -46,7 +45,6 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setSubmitError(null);
-        setWarningNotice(null);
 
         if (!formState.name || !formState.email || !formState.message) {
             alert("Please fill all form fields.");
@@ -170,7 +168,6 @@ export default function Contact() {
                                             <button
                                                 onClick={() => {
                                                     setSubmitSuccess(false);
-                                                    setWarningNotice(null);
                                                 }}
                                                 className="px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-950 text-stone-100 dark:bg-stone-100 dark:hover:bg-white dark:text-stone-900 text-xs font-semibold shadow-sm transition-all"
                                             >
