@@ -30,10 +30,7 @@ export default function Testimonials() {
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden bg-white dark:bg-[#090d16]">
-            {/* Background orbs */}
-            <div className="absolute top-[30%] right-[10%] w-[300px] h-[300px] bg-blue-600/5 rounded-full blur-[80px] pointer-events-none" />
-
+        <section className="py-24 relative overflow-hidden bg-transparent">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Section Header */}
@@ -43,11 +40,11 @@ export default function Testimonials() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                        className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-stone-950 dark:text-stone-50"
                     >
-                        Recommendations & Peer Feedback
+                        Endorsements & Feedback
                     </motion.h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-2.5">
+                    <p className="text-stone-600 dark:text-stone-400 mt-2.5">
                         What mentors, leads, and teammates say about working with me.
                     </p>
                     <motion.div
@@ -55,7 +52,7 @@ export default function Testimonials() {
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="w-20 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mt-4 rounded-full"
+                        className="w-16 h-[2px] bg-stone-900 dark:bg-stone-200 mx-auto mt-4"
                     />
                 </div>
 
@@ -68,31 +65,31 @@ export default function Testimonials() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="flex flex-col justify-between p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0f172a]/20 backdrop-blur-sm relative"
+                            className="flex flex-col justify-between p-6 sm:p-8 rounded-2xl border border-stone-300 dark:border-stone-800 bg-[#EAE6DF]/90 dark:bg-[#1D1C1A]/90 backdrop-blur-sm relative shadow-sm"
                         >
                             {/* Quote Mark Decoration */}
-                            <div className="absolute top-6 right-6 text-slate-200 dark:text-slate-800/60 pointer-events-none">
+                            <div className="absolute top-6 right-6 text-stone-300 dark:text-stone-800 pointer-events-none">
                                 <Quote size={40} />
                             </div>
 
                             <div>
                                 {/* 5 stars */}
-                                <div className="flex gap-1 mb-4 text-amber-500">
+                                <div className="flex gap-1 mb-4 text-stone-900 dark:text-stone-200">
                                     {[...Array(5)].map((_, i) => (
                                         <Star key={i} size={14} fill="currentColor" />
                                     ))}
                                 </div>
 
-                                <p className="text-sm italic text-slate-700 dark:text-slate-350 leading-relaxed mb-6 relative z-10">
+                                <p className="text-sm font-serif italic text-stone-800 dark:text-stone-200 leading-relaxed mb-6 relative z-10">
                                     &ldquo;{test.quote}&rdquo;
                                 </p>
                             </div>
 
-                            <div className="border-t border-slate-200 dark:border-slate-800 pt-4">
-                                <p className="text-xs text-slate-550 dark:text-slate-400 font-medium">
+                            <div className="border-t border-stone-300 dark:border-stone-800 pt-4">
+                                <p className="text-xs text-stone-700 dark:text-stone-300 font-semibold">
                                     {test.role}
                                 </p>
-                                <span className="inline-block text-[10px] text-blue-600 dark:text-blue-400 mt-1 font-semibold uppercase tracking-wider font-mono">
+                                <span className="inline-block text-[10px] text-stone-500 dark:text-stone-400 mt-1 font-semibold uppercase tracking-wider font-mono">
                                     {test.relation}
                                 </span>
                             </div>

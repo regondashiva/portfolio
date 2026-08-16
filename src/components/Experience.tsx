@@ -17,41 +17,34 @@ interface ExperienceItem {
 export default function Experience() {
     const experiences: ExperienceItem[] = [
         {
-            role: "AI Developer Intern",
-            company: "VISWAMAI (Swecha × IIIT Hyderabad)",
-            location: "Hyderabad, India (Hybrid)",
-            period: "May 2025 - July 2025",
-            type: "Research Internship",
-            color: "from-blue-500 to-indigo-500",
-            highlights: [
-                "Built and deployed end-to-end AI applications using NLP algorithms and Hugging Face pipelines.",
-                "Integrated Streamlit for fast dashboarding and hosting prototype AI models.",
-                "Created an interactive Toxic Comment Detection NLP model to classify online comments.",
-                "Collaborated with IIIT Hyderabad researchers on optimizing model latency and memory usage.",
-            ],
-        },
-        {
             role: "Full Stack Developer Intern",
             company: "BusyBrains.ai",
             location: "Remote, India",
-            period: "Dec 2024 - Apr 2025",
+            period: "Mar 2026 – Jul 2026",
             type: "Industry Internship",
-            color: "from-purple-500 to-pink-500",
+            color: "from-stone-800 to-stone-600",
             highlights: [
-                "Architected an enterprise CRM & Admin dashboard management platform.",
-                "Designed high-performance GraphQL APIs for real-time lead and user queries.",
-                "Implemented secure, granular Role-Based Access Control (RBAC) authorization layer.",
-                "Built interactive analytics visualization widgets to tracking lead status metrics.",
-                "Optimized frontend bundle size by lazy loading dashboard views, reducing initial chunk loads.",
+                "Contributed to a CRM application and admin panel used to streamline business operations and manage application workflows for internal teams.",
+                "Built analytics dashboards with KPI tracking, search insights, and reporting features using Next.js, GraphQL, and TypeScript.",
+                "Implemented role-based access control (RBAC) and secure authentication, and optimized API performance while collaborating in an Agile development team.",
+            ],
+        },
+        {
+            role: "AI Developer Intern",
+            company: "VISWAM.AI (Swecha × IIIT Hyderabad)",
+            location: "Hyderabad, India (Summer of AI 2025)",
+            period: "May 2025 – Jul 2025",
+            type: "Research & Development Internship",
+            color: "from-stone-800 to-stone-600",
+            highlights: [
+                "Built and deployed AI applications using Python, Hugging Face, and Streamlit for real-time inference and interactive user experiences.",
+                "Developed SocialHub, an AI-powered platform for multilingual toxic-comment detection using FastAPI, PyTorch, Transformers, and XLM-RoBERTa.",
             ],
         },
     ];
 
     return (
-        <section id="experience" className="py-24 relative overflow-hidden bg-slate-50/50 dark:bg-slate-950/20">
-            {/* Background decoration orbs */}
-            <div className="absolute top-[40%] left-[20%] w-[300px] h-[300px] rounded-full bg-blue-600/5 dark:bg-blue-900/5 blur-[90px] pointer-events-none" />
-
+        <section id="experience" className="py-24 relative overflow-hidden bg-transparent">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Section Header */}
@@ -61,11 +54,11 @@ export default function Experience() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                        className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-stone-950 dark:text-stone-50"
                     >
-                        Work Experience
+                        Experience
                     </motion.h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-2.5">
+                    <p className="text-stone-600 dark:text-stone-400 mt-2.5">
                         Professional internships exploring full-stack web builds, AI modules, and API design.
                     </p>
                     <motion.div
@@ -73,12 +66,12 @@ export default function Experience() {
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="w-20 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mt-4 rounded-full"
+                        className="w-16 h-[2px] bg-stone-900 dark:bg-stone-200 mx-auto mt-4"
                     />
                 </div>
 
                 {/* Timeline container */}
-                <div className="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 sm:ml-6 md:ml-8 space-y-12">
+                <div className="relative border-l-2 border-stone-300 dark:border-stone-800 ml-4 sm:ml-6 md:ml-8 space-y-12">
 
                     {experiences.map((exp, idx) => (
                         <motion.div
@@ -90,25 +83,25 @@ export default function Experience() {
                             className="relative pl-8 sm:pl-10 group"
                         >
                             {/* Timeline marker icon/orb */}
-                            <div className="absolute -left-[17px] top-1 ml-[1px] p-2 rounded-full border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950 text-slate-500 dark:text-slate-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                            <div className="absolute -left-[17px] top-1 ml-[1px] p-2 rounded-full border border-stone-300 bg-[#DDD9D2] dark:border-stone-700 dark:bg-[#141312] text-stone-700 dark:text-stone-300 group-hover:scale-110 group-hover:border-stone-900 dark:group-hover:border-stone-100 transition-all duration-300 shadow-sm">
                                 <Briefcase size={16} />
                             </div>
 
                             {/* Company Info Header */}
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
                                 <div>
-                                    <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 border border-blue-200/50 dark:bg-blue-950/20 dark:text-blue-400 dark:border-blue-500/20 mb-2">
+                                    <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-stone-200 text-stone-800 border border-stone-300 dark:bg-stone-900 dark:text-stone-300 dark:border-stone-700 mb-2">
                                         {exp.type}
                                     </span>
-                                    <h3 className="text-xl font-bold text-slate-905 dark:text-white leading-tight">
+                                    <h3 className="text-xl font-serif font-bold text-stone-950 dark:text-stone-50 leading-tight">
                                         {exp.role}
                                     </h3>
-                                    <h4 className="text-base font-semibold text-blue-600 dark:text-blue-400 flex items-center gap-1.5 mt-0.5">
+                                    <h4 className="text-base font-semibold text-stone-700 dark:text-stone-300 flex items-center gap-1.5 mt-0.5">
                                         {exp.company}
                                     </h4>
                                 </div>
 
-                                <div className="flex flex-col sm:flex-row md:flex-col sm:items-center md:items-end gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+                                <div className="flex flex-col sm:flex-row md:flex-col sm:items-center md:items-end gap-2 text-xs font-medium text-stone-500 dark:text-stone-400">
                                     <span className="flex items-center gap-1.5">
                                         <Calendar size={14} />
                                         {exp.period}
@@ -121,11 +114,11 @@ export default function Experience() {
                             </div>
 
                             {/* Highlights container card */}
-                            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 backdrop-blur-sm shadow-sm group-hover:shadow-md group-hover:border-blue-500/20 transition-all duration-300">
+                            <div className="p-6 rounded-2xl border border-stone-300 dark:border-stone-800 bg-[#EAE6DF]/90 dark:bg-[#1D1C1A]/90 backdrop-blur-sm shadow-sm group-hover:shadow-md group-hover:border-stone-400 transition-all duration-300">
                                 <ul className="space-y-3">
                                     {exp.highlights.map((highlight, hIdx) => (
-                                        <li key={hIdx} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
-                                            <CheckCircle2 size={16} className="text-blue-500 dark:text-blue-400 shrink-0 mt-0.5" />
+                                        <li key={hIdx} className="flex items-start gap-3 text-sm text-stone-700 dark:text-stone-300">
+                                            <CheckCircle2 size={16} className="text-stone-900 dark:text-stone-200 shrink-0 mt-0.5" />
                                             <span>{highlight}</span>
                                         </li>
                                     ))}

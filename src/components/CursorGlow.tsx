@@ -28,12 +28,11 @@ export default function CursorGlow() {
     }, []);
 
     if (theme === "light") {
-        // Return subtle cursor glow for light mode or omit to avoid washing out content
         return (
             <div
                 className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"
                 style={{
-                    background: `radial-gradient(400px at ${coords.x}px ${coords.y}px, rgba(37, 99, 235, 0.05), transparent 80%)`,
+                    background: `radial-gradient(400px at ${coords.x}px ${coords.y}px, rgba(26, 25, 24, 0.04), transparent 80%)`,
                     opacity: opacity,
                 }}
             />
@@ -44,7 +43,7 @@ export default function CursorGlow() {
         <div
             className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"
             style={{
-                background: `radial-gradient(550px at ${coords.x}px ${coords.y}px, rgba(59, 130, 246, 0.08), transparent 85%)`,
+                background: `radial-gradient(550px at ${coords.x}px ${coords.y}px, rgba(221, 217, 210, 0.06), transparent 85%)`,
                 opacity: opacity,
             }}
         />

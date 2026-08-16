@@ -18,28 +18,28 @@ export default function Contact() {
             value: "regondashiva2414@gmail.com",
             href: "mailto:regondashiva2414@gmail.com",
             icon: Mail,
-            color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
+            color: "bg-stone-900/10 text-stone-900 dark:bg-stone-100/10 dark:text-stone-100 border-stone-400/30",
         },
         {
             label: "Phone Number",
             value: "+91 7093211385",
             href: "tel:+917093211385",
             icon: Phone,
-            color: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
+            color: "bg-stone-900/10 text-stone-900 dark:bg-stone-100/10 dark:text-stone-100 border-stone-400/30",
         },
         {
             label: "LinkedIn Professional Profile",
             value: "regonda-shiva-113a6229b",
             href: "https://linkedin.com/in/regonda-shiva-113a6229b",
             icon: LinkedinIcon,
-            color: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20",
+            color: "bg-stone-900/10 text-stone-900 dark:bg-stone-100/10 dark:text-stone-100 border-stone-400/30",
         },
         {
             label: "GitHub Repositories",
             value: "github.com/regondashiva",
             href: "https://github.com/regondashiva",
             icon: GithubIcon,
-            color: "bg-slate-500/10 text-slate-800 dark:text-slate-200 border-slate-500/20",
+            color: "bg-stone-900/10 text-stone-900 dark:bg-stone-100/10 dark:text-stone-100 border-stone-400/30",
         },
     ];
 
@@ -65,17 +65,14 @@ export default function Contact() {
 
             const data = await res.json();
 
-            if (res.ok) {
-                if (data.warning === "API Key Missing") {
-                    setWarningNotice("Developer setup note: The database/email route is functioning successfully, but your RESEND_API_KEY environment variable is not defined locally yet. Set it in .env.local to route notifications directly to your email inbox.");
-                }
+            if (res.ok && data.success) {
                 setSubmitSuccess(true);
                 setFormState({ name: "", email: "", message: "" });
             } else {
-                throw new Error(data.error || "Failed to send message.");
+                throw new Error(data.error || "Failed to deliver message. Please use the direct email link below.");
             }
         } catch (err: unknown) {
-            const errMsg = err instanceof Error ? err.message : "An unexpected error occurred. Please trigger contact options directly.";
+            const errMsg = err instanceof Error ? err.message : "An unexpected error occurred. Please contact regondashiva2414@gmail.com directly.";
             setSubmitError(errMsg);
         } finally {
             setIsSubmitting(false);
@@ -83,9 +80,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-24 relative overflow-hidden bg-slate-50/50 dark:bg-slate-950/20">
-            <div className="absolute bottom-[10%] left-[10%] w-[350px] h-[350px] bg-blue-600/5 rounded-full blur-[90px] pointer-events-none" />
-
+        <section id="contact" className="py-24 relative overflow-hidden bg-transparent">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Section Header */}
@@ -95,11 +90,11 @@ export default function Contact() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                        className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-stone-950 dark:text-stone-50"
                     >
                         Get In Touch
                     </motion.h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-2.5">
+                    <p className="text-stone-600 dark:text-stone-400 mt-2.5">
                         Feel free to submit a message, query, or invitation for collaboration.
                     </p>
                     <motion.div
@@ -107,22 +102,22 @@ export default function Contact() {
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="w-20 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mt-4 rounded-full"
+                        className="w-16 h-[2px] bg-stone-900 dark:bg-stone-200 mx-auto mt-4"
                     />
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
 
                     {/* Contact Details Grid */}
-                    <div className="lg:col-span-5 flex flex-col justify-between gap-6">
-                        <div className="space-y-4">
-                            <h3 className="text-xl font-bold text-slate-850 dark:text-white">Contact Channels</h3>
-                            <p className="text-sm text-slate-500 dark:text-slate-400">
-                                You can reach out directly via mail or telephone, or connect through social links.
+                    <div className="lg:col-span-5 flex flex-col justify-start gap-6">
+                        <div>
+                            <h3 className="text-2xl font-serif font-bold text-stone-950 dark:text-stone-50">Direct Channels</h3>
+                            <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">
+                                You can reach out directly via email, phone, or connect through professional networks.
                             </p>
                         </div>
 
-                        <div className="space-y-4 flex-grow mt-6">
+                        <div className="space-y-4 mt-2">
                             {contactDetails.map((channel, idx) => {
                                 const Icon = channel.icon;
                                 return (
@@ -131,14 +126,18 @@ export default function Contact() {
                                         href={channel.href}
                                         target={channel.href.startsWith("http") ? "_blank" : undefined}
                                         rel="noreferrer"
-                                        className="flex items-center gap-4.5 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-[#0f172a]/40 backdrop-blur-sm hover:border-blue-500/20 hover:shadow-md transition-all duration-300 group"
+                                        className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-stone-300 dark:border-stone-800 bg-white/90 dark:bg-[#1D1C1A]/90 backdrop-blur-sm hover:border-stone-600 dark:hover:border-stone-500 hover:shadow-md transition-all duration-300 group shadow-sm"
                                     >
-                                        <div className={`p-3 rounded-lg border ${channel.color} shrink-0 group-hover:scale-105 transition-transform`}>
-                                            <Icon size={18} />
+                                        <div className="p-3.5 rounded-xl bg-stone-900/10 text-stone-900 dark:bg-stone-100/10 dark:text-stone-100 border border-stone-400/20 shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center">
+                                            <Icon size={20} />
                                         </div>
-                                        <div className="min-w-0">
-                                            <p className="text-[10px] text-slate-400 uppercase font-semibold font-mono">{channel.label}</p>
-                                            <p className="text-sm font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">{channel.value}</p>
+                                        <div className="min-w-0 flex-1">
+                                            <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 font-mono">
+                                                {channel.label}
+                                            </p>
+                                            <p className="text-sm sm:text-base font-semibold text-stone-900 dark:text-stone-100 truncate mt-0.5">
+                                                {channel.value}
+                                            </p>
                                         </div>
                                     </a>
                                 );
@@ -148,7 +147,7 @@ export default function Contact() {
 
                     {/* Interactive Form */}
                     <div className="lg:col-span-7">
-                        <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#0f172a]/60 backdrop-blur-md shadow-lg relative overflow-hidden">
+                        <div className="p-6 sm:p-8 rounded-2xl border border-stone-300 dark:border-stone-800 bg-white/90 dark:bg-[#1D1C1A]/90 backdrop-blur-md shadow-md relative overflow-hidden">
 
                             <AnimatePresence>
                                 {submitSuccess && (
@@ -156,33 +155,41 @@ export default function Contact() {
                                         initial={{ opacity: 0, scale: 0.95 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.95 }}
-                                        className="absolute inset-0 bg-white dark:bg-[#0f172a] z-20 flex flex-col items-center justify-center p-6 text-center"
+                                        className="absolute inset-0 bg-white dark:bg-[#1D1C1A] z-20 flex flex-col items-center justify-center p-6 text-center"
                                     >
-                                        <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-4">
+                                        <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4 border border-emerald-500/20 shadow-sm">
                                             <CheckCircle2 size={36} />
                                         </div>
-                                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                                            {warningNotice ? "Form Received (Demo Mode)" : "Message Sent Successfully!"}
+                                        <h3 className="text-2xl font-serif font-bold text-stone-950 dark:text-stone-50 mb-2">
+                                            Message Sent Successfully!
                                         </h3>
-                                        <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm">
-                                            {warningNotice || "Thank you for reaching out, Regonda Shiva will respond to your email as soon as possible."}
+                                        <p className="text-sm text-stone-600 dark:text-stone-400 max-w-sm leading-relaxed mb-6">
+                                            Thank you for reaching out. Your message has been delivered directly to Shiva&apos;s email inbox.
                                         </p>
-                                        <button
-                                            onClick={() => {
-                                                setSubmitSuccess(false);
-                                                setWarningNotice(null);
-                                            }}
-                                            className="mt-6 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold"
-                                        >
-                                            Send another message
-                                        </button>
+                                        <div className="flex flex-wrap items-center justify-center gap-3">
+                                            <button
+                                                onClick={() => {
+                                                    setSubmitSuccess(false);
+                                                    setWarningNotice(null);
+                                                }}
+                                                className="px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-950 text-stone-100 dark:bg-stone-100 dark:hover:bg-white dark:text-stone-900 text-xs font-semibold shadow-sm transition-all"
+                                            >
+                                                Send Another Message
+                                            </button>
+                                            <a
+                                                href="mailto:regondashiva65@gmail.com"
+                                                className="px-5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200 text-xs font-semibold hover:bg-stone-200 dark:hover:bg-stone-700 transition-all"
+                                            >
+                                                Direct Mail App
+                                            </a>
+                                        </div>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
 
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-5">
                                 <div>
-                                    <label htmlFor="form-name" className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                                    <label htmlFor="form-name" className="block text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200 mb-2">
                                         Your Name
                                     </label>
                                     <input
@@ -192,12 +199,12 @@ export default function Contact() {
                                         placeholder="Enter your name"
                                         value={formState.name}
                                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/60 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm text-slate-800 dark:text-white transition-all outline-none"
+                                        className="w-full px-4 py-3.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:ring-2 focus:ring-stone-500 dark:focus:ring-stone-400 focus:border-stone-500 text-sm transition-all outline-none"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="form-email" className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                                    <label htmlFor="form-email" className="block text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200 mb-2">
                                         E-mail Address
                                     </label>
                                     <input
@@ -207,12 +214,12 @@ export default function Contact() {
                                         placeholder="name@company.com"
                                         value={formState.email}
                                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/60 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm text-slate-800 dark:text-white transition-all outline-none"
+                                        className="w-full px-4 py-3.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:ring-2 focus:ring-stone-500 dark:focus:ring-stone-400 focus:border-stone-500 text-sm transition-all outline-none"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="form-msg" className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                                    <label htmlFor="form-msg" className="block text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200 mb-2">
                                         Your Message
                                     </label>
                                     <textarea
@@ -222,12 +229,12 @@ export default function Contact() {
                                         placeholder="Describe your project, role opportunity, or question..."
                                         value={formState.message}
                                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/60 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm text-slate-800 dark:text-white transition-all outline-none resize-none"
+                                        className="w-full px-4 py-3.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:ring-2 focus:ring-stone-500 dark:focus:ring-stone-400 focus:border-stone-500 text-sm transition-all outline-none resize-none"
                                     />
                                 </div>
 
                                 {submitError && (
-                                    <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-500 text-xs flex items-center gap-2">
+                                    <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-600 text-xs flex items-center gap-2">
                                         <AlertCircle size={16} />
                                         <span>{submitError}</span>
                                     </div>
@@ -236,12 +243,12 @@ export default function Contact() {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white font-semibold text-sm transition-all duration-300 font-sans cursor-pointer hover:shadow-lg hover:shadow-blue-500/10"
+                                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-stone-900 hover:bg-stone-950 disabled:bg-stone-800 text-stone-100 dark:bg-stone-100 dark:hover:bg-white dark:text-stone-900 font-semibold text-sm transition-all duration-300 font-sans cursor-pointer shadow-md hover:shadow-lg mt-2"
                                 >
                                     {isSubmitting ? (
                                         <>
                                             <span>Sending message...</span>
-                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                            <div className="w-4 h-4 border-2 border-stone-400 border-t-transparent rounded-full animate-spin" />
                                         </>
                                     ) : (
                                         <>

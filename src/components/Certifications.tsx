@@ -45,10 +45,7 @@ export default function Certifications() {
     ];
 
     return (
-        <section id="certifications" className="py-24 relative overflow-hidden bg-white dark:bg-[#090d16]">
-            {/* Background decoration orbs */}
-            <div className="absolute top-[20%] left-[5%] w-[250px] h-[250px] bg-blue-600/5 rounded-full blur-[70px] pointer-events-none" />
-
+        <section id="certifications" className="py-24 relative overflow-hidden bg-transparent">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Section Header */}
@@ -58,11 +55,11 @@ export default function Certifications() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                        className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-stone-950 dark:text-stone-50"
                     >
-                        Certifications & Licenses
+                        Certifications & Credentials
                     </motion.h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-2.5">
+                    <p className="text-stone-600 dark:text-stone-400 mt-2.5">
                         Credentials and academic badges acquired throughout my engineering studies.
                     </p>
                     <motion.div
@@ -70,7 +67,7 @@ export default function Certifications() {
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="w-20 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mt-4 rounded-full"
+                        className="w-16 h-[2px] bg-stone-900 dark:bg-stone-200 mx-auto mt-4"
                     />
                 </div>
 
@@ -83,34 +80,34 @@ export default function Certifications() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="flex flex-col justify-between p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20 backdrop-blur-sm hover:border-blue-500/30 hover:shadow-lg dark:hover:shadow-blue-500/5 transition-all duration-300 group"
+                            className="flex flex-col justify-between p-6 rounded-2xl border border-stone-300 dark:border-stone-800 bg-[#EAE6DF]/90 dark:bg-[#1D1C1A]/90 backdrop-blur-sm hover:border-stone-500 hover:shadow-lg transition-all duration-300 group shadow-sm"
                         >
                             <div>
                                 {/* Header Icon */}
                                 <div className="flex justify-between items-start mb-4">
-                                    <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                                    <div className="p-2.5 rounded-xl bg-stone-900/10 text-stone-900 dark:bg-stone-100/10 dark:text-stone-100 group-hover:scale-110 transition-transform">
                                         <Award size={20} />
                                     </div>
-                                    <ShieldCheck size={18} className="text-emerald-500 opacity-60" />
+                                    <ShieldCheck size={18} className="text-stone-600 dark:text-stone-400 opacity-80" />
                                 </div>
 
-                                <h3 className="text-base font-bold text-slate-905 dark:text-white mb-2 leading-snug">
+                                <h3 className="text-base font-serif font-bold text-stone-950 dark:text-stone-50 mb-2 leading-snug">
                                     {certs.title}
                                 </h3>
 
-                                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">
+                                <p className="text-xs text-stone-600 dark:text-stone-400 mb-4 line-clamp-2">
                                     {certs.issuer}
                                 </p>
                             </div>
 
-                            <div className="border-t border-slate-200/60 dark:border-slate-800/80 pt-4 mt-4">
-                                <div className="flex items-center gap-1.5 text-[11px] font-medium text-slate-405 dark:text-slate-400 mb-2.5">
+                            <div className="border-t border-stone-300 dark:border-stone-800 pt-4 mt-4">
+                                <div className="flex items-center gap-1.5 text-[11px] font-medium text-stone-600 dark:text-stone-400 mb-2.5">
                                     <Calendar size={13} />
                                     <span>Issued: {certs.date}</span>
                                 </div>
 
                                 <div className="flex items-center justify-between gap-2">
-                                    <span className="text-[10px] font-mono text-slate-400 truncate max-w-[120px]">
+                                    <span className="text-[10px] font-mono text-stone-500 dark:text-stone-400 truncate max-w-[120px]">
                                         ID: {certs.credentialId}
                                     </span>
 
@@ -122,7 +119,7 @@ export default function Certifications() {
                                                 alert(`Opening certification link detail verification credential code: ${certs.credentialId}`);
                                             }
                                         }}
-                                        className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline"
+                                        className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-900 dark:text-stone-100 hover:underline"
                                     >
                                         Verify
                                         <ExternalLink size={10} />

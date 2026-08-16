@@ -15,7 +15,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-white dark:bg-[#090d16] selection:bg-blue-500/30 text-slate-800 dark:text-slate-100 overflow-x-hidden font-sans transition-colors duration-300">
+    <div className="relative min-h-screen bg-[#DDD9D2] dark:bg-[#141312] selection:bg-[#1A1918] selection:text-[#DDD9D2] dark:selection:bg-[#DDD9D2] dark:selection:text-[#141312] text-stone-900 dark:text-stone-100 overflow-x-hidden font-sans transition-colors duration-300">
 
       {/* Background Interactive Cursor Glow */}
       <CursorGlow />

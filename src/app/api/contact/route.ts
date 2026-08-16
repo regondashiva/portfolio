@@ -12,58 +12,60 @@ export async function POST(request: Request) {
             );
         }
 
+        const targetEmail = process.env.CONTACT_EMAIL || "regondashiva65@gmail.com";
         const apiKey = process.env.RESEND_API_KEY;
 
         if (!apiKey) {
-            // If RESEND_API_KEY is not defined in env, log it on server, and return detailed notice
-            console.warn("RESEND_API_KEY environment variable is not defined.");
             return NextResponse.json(
-                {
-                    success: false,
-                    warning: "API Key Missing",
-                    message: "The Resend API key is missing. Please set the RESEND_API_KEY environment variable.",
-                },
-                { status: 200 }
+                { error: "Resend API key is missing. Please check .env.local" },
+                { status: 500 }
             );
         }
 
         const resend = new Resend(apiKey);
-
         const { data, error } = await resend.emails.send({
             from: "Portfolio Contact <onboarding@resend.dev>",
-            to: "regondashiva2414@gmail.com",
-            subject: `New Portfolio Message from ${name}`,
+            to: targetEmail,
+            subject: `Portfolio Message from ${name}`,
             replyTo: email,
             html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; rounded: 12px; border-radius: 12px; background-color: #fafafa;">
-          <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px; margin-top: 0;">New Contact Form Submission</h2>
-          <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold; color: #475569; width: 100px;">Sender Name:</td>
-              <td style="padding: 8px 0; color: #1e293b;">${name}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold; color: #475569;">E-mail:</td>
-              <td style="padding: 8px 0; color: #1e293b;"><a href="mailto:${email}" style="color: #3b82f6; text-decoration: none;">${email}</a></td>
-            </tr>
-          </table>
-          <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 10px;">
-            <p style="margin: 0 0 8px 0; font-weight: bold; color: #475569;">Message:</p>
-            <p style="margin: 0; color: #334155; line-height: 1.6; white-space: pre-wrap;">${message}</p>
-          </div>
-          <p style="font-size: 11px; color: #94a3b8; text-align: center; margin-top: 25px; font-style: italic;">
-            Received from portfolio website visitor.
-          </p>
-        </div>
-      `,
+                <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e7e5e4; border-radius: 16px; background-color: #fafaf9;">
+                    <h2 style="color: #1c1917; border-bottom: 2px solid #78716c; padding-bottom: 12px; margin-top: 0; font-size: 20px;">New Portfolio Contact Inquiry</h2>
+                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                        <tr>
+                            <td style="padding: 8px 0; font-weight: bold; color: #78716c; width: 120px; font-size: 13px;">Sender Name:</td>
+                            <td style="padding: 8px 0; color: #1c1917; font-weight: 600; font-size: 14px;">${name}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; font-weight: bold; color: #78716c; font-size: 13px;">Email Address:</td>
+                            <td style="padding: 8px 0; color: #1c1917; font-size: 14px;">
+                                <a href="mailto:${email}" style="color: #0284c7; text-decoration: none; font-weight: 500;">${email}</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="background-color: #ffffff; padding: 18px; border-radius: 12px; border: 1px solid #e7e5e4; margin-top: 12px;">
+                        <p style="margin: 0 0 8px 0; font-weight: bold; color: #78716c; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Message:</p>
+                        <p style="margin: 0; color: #292524; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">${message}</p>
+                    </div>
+                    <div style="margin-top: 20px; padding: 12px; background-color: #f5f5f4; border-radius: 8px; font-size: 12px; color: #57534e; text-align: center;">
+                        Click <strong>Reply</strong> in your email client to respond directly to <strong>${email}</strong>.
+                    </div>
+                </div>
+            `,
         });
 
         if (error) {
-            console.error("Resend service error details:", error);
+            console.error("Resend delivery error:", error);
             return NextResponse.json({ error: error.message }, { status: 500 });
         }
 
-        return NextResponse.json({ success: true, data });
+        return NextResponse.json({
+            success: true,
+            provider: "resend",
+            message: "Email delivered to your inbox successfully!",
+            data,
+        });
+
     } catch (err: unknown) {
         console.error("Server contact route exception:", err);
         const errMsg = err instanceof Error ? err.message : "Internal server error";

@@ -16,51 +16,49 @@ interface Achievement {
 export default function Achievements() {
     const achievements: Achievement[] = [
         {
-            title: "4th Place – TechSaavishkar National Hackathon",
-            category: "Hackathon Award",
-            meta: "National Level Standing",
-            desc: "Designed and engineered an automated workflow solution, qualifying in the top 4 teams out of 200+ submissions across engineering colleges.",
+            title: "4th Place – TechSaavishkar National-Level Hackathon",
+            category: "National Hackathon",
+            meta: "Vasavi College of Engineering, 2026",
+            desc: "Secured 4th place for building an AI-powered land registry fraud detection system using OCR and machine learning techniques.",
             icon: Trophy,
-            color: "text-amber-500 bg-amber-500/10",
-        },
-        {
-            title: "Robotics Workshop Coordinator",
-            category: "Leadership Role",
-            meta: "MVSR Student Council",
-            desc: "Organized and structured a hands-on robotics development training program for over 150+ students covering hardware controllers, sensor integrations, and Arduino logic.",
-            icon: Users,
-            color: "text-blue-500 bg-blue-500/10",
+            color: "text-stone-900 bg-stone-900/10 dark:text-stone-100 dark:bg-stone-100/10",
         },
         {
             title: "Technical Paper Presentation Coordinator",
-            category: "Academic Leadership",
-            meta: "College Tech Fest",
-            desc: "Coordinated research paper sessions, managed evaluation rubrics, and worked with expert panels to moderate and catalog student technical papers.",
+            category: "College Leadership",
+            meta: "Samavarthan 2K26, MVSR",
+            desc: "Served as Technical Paper Presentation Coordinator for Samavarthan 2K26 at Maturi Venkata Subba Rao Engineering College.",
             icon: FileText,
-            color: "text-indigo-500 bg-indigo-500/10",
+            color: "text-stone-900 bg-stone-900/10 dark:text-stone-100 dark:bg-stone-100/10",
+        },
+        {
+            title: "Robotics Workshop Co-Coordinator",
+            category: "Collaborative Workshop",
+            meta: "Techfest, IIT Bombay (2025)",
+            desc: "Co-coordinated a hands-on Robotics Workshop in collaboration with Techfest, IIT Bombay (2025).",
+            icon: Users,
+            color: "text-stone-900 bg-stone-900/10 dark:text-stone-100 dark:bg-stone-100/10",
         },
         {
             title: "Deloitte Data Analytics Job Simulation",
-            category: "Practice Simulation",
-            meta: "Forage Platform",
-            desc: "Completed simulated data modeling, dashboard analysis, client insight reports, and SQL data queries representing Deloitte workflow processes.",
+            category: "Industry Simulation",
+            meta: "Forage (2025)",
+            desc: "Completed the Deloitte Data Analytics Job Simulation on Forage — built interactive dashboards and analyzed business data using Tableau and Excel.",
             icon: Award,
-            color: "text-emerald-500 bg-emerald-500/10",
+            color: "text-stone-900 bg-stone-900/10 dark:text-stone-100 dark:bg-stone-100/10",
         },
         {
             title: "Machine Learning Using Python (NIELIT)",
-            category: "Specialized Course",
-            meta: "National Institute of Electronics & Information Technology",
-            desc: "Underwent rigorous classroom training and project builds covering supervised learning, pandas scripting, regression, clustering models, and PyTorch introductory algorithms.",
+            category: "Certification",
+            meta: "NIELIT (January 2025)",
+            desc: "Completed Machine Learning Using Python by NIELIT with hands-on experience in classification, regression, and clustering techniques.",
             icon: CheckCircle2,
-            color: "text-rose-500 bg-rose-500/10",
+            color: "text-stone-900 bg-stone-900/10 dark:text-stone-100 dark:bg-stone-100/10",
         },
     ];
 
     return (
-        <section id="achievements" className="py-24 relative overflow-hidden bg-slate-50/50 dark:bg-slate-950/20">
-            <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-indigo-600/5 rounded-full blur-[80px] pointer-events-none" />
-
+        <section id="achievements" className="py-24 relative overflow-hidden bg-transparent">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Section Header */}
@@ -70,11 +68,11 @@ export default function Achievements() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                        className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-stone-950 dark:text-stone-50"
                     >
                         Achievements & Leadership
                     </motion.h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-2.5">
+                    <p className="text-stone-600 dark:text-stone-400 mt-2.5">
                         Key milestones, hackathons, and coordinator capacities held at MVSR.
                     </p>
                     <motion.div
@@ -82,7 +80,7 @@ export default function Achievements() {
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="w-20 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mt-4 rounded-full"
+                        className="w-16 h-[2px] bg-stone-900 dark:bg-stone-200 mx-auto mt-4"
                     />
                 </div>
 
@@ -97,25 +95,25 @@ export default function Achievements() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                className="flex gap-5 p-6 rounded-2xl border border-slate-205 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 backdrop-blur-sm hover:border-blue-550/20 hover:shadow-lg dark:hover:shadow-blue-500/5 transition-all duration-300 group"
+                                className="flex gap-5 p-6 rounded-2xl border border-stone-300 dark:border-stone-800 bg-[#EAE6DF]/90 dark:bg-[#1D1C1A]/90 backdrop-blur-sm hover:border-stone-500 hover:shadow-lg transition-all duration-300 group shadow-sm"
                             >
                                 <div className={`p-3.5 rounded-xl ${ach.color} shrink-0 h-fit group-hover:scale-110 transition-transform`}>
                                     <Icon size={22} />
                                 </div>
                                 <div>
                                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
-                                        <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                                        <span className="text-xs font-semibold text-stone-600 dark:text-stone-400">
                                             {ach.category}
                                         </span>
-                                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 hidden sm:inline" />
-                                        <span className="text-xs font-mono font-medium text-blue-600 dark:text-blue-400">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-stone-400 dark:bg-stone-600 hidden sm:inline" />
+                                        <span className="text-xs font-mono font-medium text-stone-800 dark:text-stone-300">
                                             {ach.meta}
                                         </span>
                                     </div>
-                                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+                                    <h3 className="text-lg font-serif font-bold text-stone-950 dark:text-stone-50 mb-2 leading-snug">
                                         {ach.title}
                                     </h3>
-                                    <p className="text-sm text-slate-650 dark:text-slate-400 leading-relaxed">
+                                    <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                                         {ach.desc}
                                     </p>
                                 </div>

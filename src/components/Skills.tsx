@@ -24,8 +24,8 @@ export default function Skills() {
         {
             title: "Frontend Development",
             icon: Layers,
-            color: "from-blue-500 to-cyan-500",
-            glow: "rgba(59, 130, 246, 0.15)",
+            color: "from-stone-900 to-stone-700 dark:from-stone-200 dark:to-stone-400",
+            glow: "rgba(26, 25, 24, 0.08)",
             skills: [
                 { name: "React.js", level: 90 },
                 { name: "Next.js", level: 85 },
@@ -38,8 +38,8 @@ export default function Skills() {
         {
             title: "Backend Development",
             icon: Server,
-            color: "from-indigo-500 to-purple-500",
-            glow: "rgba(99, 102, 241, 0.15)",
+            color: "from-stone-800 to-stone-600 dark:from-stone-300 dark:to-stone-500",
+            glow: "rgba(26, 25, 24, 0.08)",
             skills: [
                 { name: "Node.js", level: 85 },
                 { name: "Express.js", level: 88 },
@@ -51,8 +51,8 @@ export default function Skills() {
         {
             title: "Databases",
             icon: Database,
-            color: "from-emerald-500 to-teal-500",
-            glow: "rgba(16, 185, 129, 0.15)",
+            color: "from-stone-900 to-stone-700 dark:from-stone-200 dark:to-stone-400",
+            glow: "rgba(26, 25, 24, 0.08)",
             skills: [
                 { name: "PostgreSQL", level: 82 },
                 { name: "MySQL", level: 85 },
@@ -63,8 +63,8 @@ export default function Skills() {
         {
             title: "Data Analytics",
             icon: BarChart3,
-            color: "from-amber-500 to-orange-500",
-            glow: "rgba(245, 158, 11, 0.15)",
+            color: "from-stone-800 to-stone-600 dark:from-stone-300 dark:to-stone-500",
+            glow: "rgba(26, 25, 24, 0.08)",
             skills: [
                 { name: "SQL", level: 88 },
                 { name: "Power BI", level: 70 },
@@ -76,8 +76,8 @@ export default function Skills() {
         {
             title: "AI / Machine Learning",
             icon: Binary,
-            color: "from-rose-500 to-pink-500",
-            glow: "rgba(244, 63, 94, 0.15)",
+            color: "from-stone-900 to-stone-700 dark:from-stone-200 dark:to-stone-400",
+            glow: "rgba(26, 25, 24, 0.08)",
             skills: [
                 { name: "Scikit-Learn", level: 80 },
                 { name: "Transformers", level: 75 },
@@ -89,8 +89,8 @@ export default function Skills() {
         {
             title: "Development Tools",
             icon: Wrench,
-            color: "from-slate-500 to-zinc-500",
-            glow: "rgba(148, 163, 184, 0.15)",
+            color: "from-stone-800 to-stone-600 dark:from-stone-300 dark:to-stone-500",
+            glow: "rgba(26, 25, 24, 0.08)",
             skills: [
                 { name: "Git", level: 90 },
                 { name: "GitHub", level: 92 },
@@ -102,11 +102,7 @@ export default function Skills() {
     ];
 
     return (
-        <section id="skills" className="py-24 relative overflow-hidden bg-white dark:bg-[#090d16]">
-            {/* Background orbs */}
-            <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] rounded-full bg-indigo-600/5 dark:bg-blue-900/10 blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-[20%] left-[5%] w-[350px] h-[350px] rounded-full bg-blue-600/5 dark:bg-purple-900/10 blur-[100px] pointer-events-none" />
-
+        <section id="skills" className="py-24 relative overflow-hidden bg-transparent">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Section Header */}
@@ -116,19 +112,19 @@ export default function Skills() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                        className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-stone-950 dark:text-stone-50"
                     >
-                        My Tech Stack
+                        Technical Capabilities
                     </motion.h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-2.5">
-                        A comprehensive list of technologies, frameworks, and database models I work with.
+                    <p className="text-stone-600 dark:text-stone-400 mt-2.5">
+                        A comprehensive list of technologies, frameworks, and tools I work with.
                     </p>
                     <motion.div
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="w-20 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mt-4 rounded-full"
+                        className="w-16 h-[2px] bg-stone-900 dark:bg-stone-200 mx-auto mt-4"
                     />
                 </div>
 
@@ -145,11 +141,11 @@ export default function Skills() {
                                     key={idx}
                                     onClick={() => setActiveCategory(idx)}
                                     className={`flex items-center gap-3.5 px-5 py-4 rounded-xl border text-left font-semibold text-sm transition-all duration-300 whitespace-nowrap lg:whitespace-normal shrink-0 lg:shrink w-auto lg:w-full ${isActive
-                                        ? "bg-slate-900 dark:bg-slate-800 text-white border-slate-900 dark:border-slate-700 shadow-md translate-x-0 lg:translate-x-2"
-                                        : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800"
+                                        ? "bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 border-stone-900 dark:border-stone-100 shadow-md translate-x-0 lg:translate-x-2"
+                                        : "bg-[#EAE6DF]/70 hover:bg-[#EAE6DF] dark:bg-[#1D1C1A]/70 dark:hover:bg-[#1D1C1A] text-stone-700 dark:text-stone-300 border-stone-300 dark:border-stone-800"
                                         }`}
                                 >
-                                    <div className={`p-2 rounded-lg ${isActive ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-slate-800 text-slate-500"
+                                    <div className={`p-2 rounded-lg ${isActive ? "bg-stone-800 dark:bg-stone-200 text-stone-100 dark:text-stone-900" : "bg-stone-300/60 dark:bg-stone-800 text-stone-600 dark:text-stone-400"
                                         }`}>
                                         <Icon size={18} />
                                     </div>
@@ -167,20 +163,17 @@ export default function Skills() {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4 }}
-                            className="h-full p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30 backdrop-blur-md relative"
-                            style={{
-                                boxShadow: `0 10px 40px -10px ${categories[activeCategory].glow}`
-                            }}
+                            className="h-full p-6 sm:p-8 rounded-2xl border border-stone-300 dark:border-stone-800 bg-[#EAE6DF]/90 dark:bg-[#1D1C1A]/90 backdrop-blur-md shadow-sm relative"
                         >
                             <div className="flex items-center gap-4 mb-8">
-                                <div className={`p-4 rounded-2xl bg-gradient-to-r ${categories[activeCategory].color} text-white shadow-lg`}>
+                                <div className={`p-4 rounded-2xl bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 shadow-md`}>
                                     {React.createElement(categories[activeCategory].icon, { size: 24 })}
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                                    <h3 className="text-xl font-serif font-bold text-stone-950 dark:text-stone-50">
                                         {categories[activeCategory].title}
                                     </h3>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                                    <p className="text-sm text-stone-600 dark:text-stone-400">
                                         Proficiency breakdown & skills list
                                     </p>
                                 </div>
@@ -191,21 +184,21 @@ export default function Skills() {
                                 {categories[activeCategory].skills.map((skill, sIdx) => (
                                     <div key={sIdx} className="space-y-2 group">
                                         <div className="flex justify-between items-center">
-                                            <span className="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-blue-500 transition-colors">
+                                            <span className="font-semibold text-stone-900 dark:text-stone-200 group-hover:text-stone-950 dark:group-hover:text-white transition-colors">
                                                 {skill.name}
                                             </span>
-                                            <span className="text-xs font-mono text-slate-400">
+                                            <span className="text-xs font-mono text-stone-500 dark:text-stone-400">
                                                 {skill.level}%
                                             </span>
                                         </div>
                                         {/* Progress Bar background */}
-                                        <div className="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                        <div className="w-full h-2 rounded-full bg-stone-300 dark:bg-stone-800 overflow-hidden">
                                             {/* Interactive visual progress fill */}
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 animate={{ width: `${skill.level}%` }}
                                                 transition={{ duration: 0.8, delay: sIdx * 0.05 }}
-                                                className={`h-full rounded-full bg-gradient-to-r ${categories[activeCategory].color}`}
+                                                className={`h-full rounded-full bg-stone-900 dark:bg-stone-100`}
                                             />
                                         </div>
                                     </div>
@@ -213,9 +206,9 @@ export default function Skills() {
                             </div>
 
                             {/* Visual Tech Mockup in bottom */}
-                            <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs text-slate-400 font-mono">
-                                <span>{"// mvsc university - lab tools active"}</span>
-                                <span>status: operational</span>
+                            <div className="mt-8 pt-6 border-t border-stone-300 dark:border-stone-800 flex justify-between items-center text-xs text-stone-500 dark:text-stone-400 font-mono">
+                                <span>{"// engineering curriculum & production stack"}</span>
+                                <span>status: verified</span>
                             </div>
                         </motion.div>
                     </div>
