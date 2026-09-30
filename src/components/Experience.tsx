@@ -20,7 +20,7 @@ export default function Experience() {
             role: "Full Stack Developer Intern",
             company: "BusyBrains.ai",
             location: "Remote, India",
-            period: "Mar 2026 – Jul 2026",
+            period: "Mar 2026 – Sep 2026",
             type: "Industry Internship",
             color: "from-stone-800 to-stone-600",
             highlights: [

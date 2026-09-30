@@ -9,7 +9,7 @@ export default function About() {
     const stats = [
         { label: "Internships Completed", end: 2, suffix: "", icon: Code2, desc: "Industry & Research" },
         { label: "Projects Delivered", end: 10, suffix: "+", icon: Rocket, desc: "AI, Fullstack & Analytics" },
-        { label: "Academic CGPA", end: 8.7, decimals: 1, suffix: "", icon: GraduationCap, desc: "MVSR IT Department" },
+        { label: "Academic CGPA", end: 8.79, decimals: 2, suffix: "", icon: GraduationCap, desc: "MVSR IT Department" },
         { label: "Hackathon Standing", end: 4, prefix: "", suffix: "th", icon: Award, desc: "TechSaavishkar National" },
     ];
 

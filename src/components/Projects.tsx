@@ -25,6 +25,22 @@ export default function Projects() {
 
     const projects: Project[] = [
         {
+            title: "Event Security & Attendance System",
+            description: "A secure QR-based event entry and attendance system for Graduation Day (1,000+) and Orientation Day (1,800+) attendees with eligibility verification against official student records, real-time monitoring, duplicate-entry prevention, and role-based access control.",
+            category: "fullstack",
+            categoryLabel: "Full Stack & Security",
+            tech: ["React.js", "TypeScript", "Node.js", "Express.js", "Prisma", "JWT", "BCrypt", "Tailwind CSS"],
+            demoUrl: "https://github.com/regondashiva",
+            githubUrl: "https://github.com/regondashiva",
+            imageUrl: "/projects/event_security.jpg",
+            urlLabel: "github.com/regondashiva",
+            statusLabel: "● PRODUCTION",
+            metrics: [
+                { label: "Attendees Served", value: "2,800+" },
+                { label: "Scan Validation", value: "<150ms" },
+            ],
+        },
+        {
             title: "SocialHub — AI-Powered Social Media Platform",
             description: "Full-stack social media platform with JWT authentication, real-time feed, posts, likes, comments, profiles, and follow system. Powered by an AI multilingual toxicity detection engine (FastAPI, PyTorch, XLM-RoBERTa) that validates comments in real time across English, Hindi, Telugu, and Hinglish with smart gradient alerts and polite rewrite suggestions.",
             category: "ai",
