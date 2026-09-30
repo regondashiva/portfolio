@@ -150,6 +150,22 @@ export default function ResumePage() {
                     </div>
 
                     {/* Project 3 */}
+                    <div className="mb-4">
+                        <div className="flex justify-between items-baseline text-xs mb-0.5">
+                            <h3 className="font-bold text-stone-950">
+                                CareerGuide — Student Career & Education Platform
+                                <a href="https://career-guide-9kof.onrender.com" target="_blank" rel="noreferrer" className="text-stone-600 hover:text-stone-950 font-normal ml-1 underline">| Link</a>
+                            </h3>
+                            <span className="text-stone-600 font-mono text-[11px]">2025</span>
+                        </div>
+                        <p className="text-[11px] text-stone-500 italic mb-1 font-mono">React.js · Node.js · Express.js · REST APIs · HTML5 · CSS3</p>
+                        <ul className="list-disc list-outside ml-4 space-y-0.5 text-xs text-stone-700">
+                            <li>Developed a comprehensive career guidance portal providing curated roadmaps and stream exploration across 6+, 10+, and 12+ student stages.</li>
+                            <li>Integrated structured course details, industry career pathways, and actionable guidance modules to assist students and parents in informed decision-making.</li>
+                        </ul>
+                    </div>
+
+                    {/* Project 4 */}
                     <div>
                         <div className="flex justify-between items-baseline text-xs mb-0.5">
                             <h3 className="font-bold text-stone-950">

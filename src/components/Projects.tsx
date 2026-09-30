@@ -73,6 +73,22 @@ export default function Projects() {
             ],
         },
         {
+            title: "CareerGuide — Student Career & Education Guidance Platform",
+            description: "An interactive educational guidance platform built to empower students and parents across academic stages (6+, 10+, and 12+) with structured skill roadmaps, tailored stream selections, in-depth course explorations, and actionable career pathway insights.",
+            category: "fullstack",
+            categoryLabel: "Full Stack & EdTech",
+            tech: ["React.js", "JavaScript", "Node.js", "Express.js", "HTML5", "CSS3", "REST APIs"],
+            demoUrl: "https://career-guide-9kof.onrender.com",
+            githubUrl: "https://github.com/regondashiva",
+            imageUrl: "/projects/careerguide.jpg",
+            urlLabel: "career-guide-9kof.onrender.com",
+            statusLabel: "● LIVE DEMO",
+            metrics: [
+                { label: "Target Stages", value: "6+, 10+, 12+" },
+                { label: "Platform Status", value: "100% Live" },
+            ],
+        },
+        {
             title: "RecruitAI — Resume Screening & Recruitment Analytics",
             description: "An intelligent recruitment platform that automates resume screening with spaCy and NLTK NLP, extracts skills/experience from PDF/DOCX files, matches candidates using TF-IDF & cosine similarity ranking, and delivers interactive analytics dashboards with candidate funnel tracking.",
             category: "ai",
